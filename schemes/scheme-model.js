@@ -1,17 +1,19 @@
 const db=require("../data/config")
 
+// resolves to an array of schemes
 function find(){
     return db("schemes")
 }
+// resolves to an single id of schemes
 function findById(id){
     return db("schemes").where({id}).first()
 }
 
 function findSteps(id){
-    return db("schemes")
-    .join ("steps","schemes.id","steps.scheme_id")
-    .where("scheme_id", id)
-  .select("schemes.id", "schemes.scheme_name", "steps.step_number", "steps.instructions")
+    return db("steps")
+    .innerJoin("schemes", "schemes.id", "steps.scheme_id"  )
+    .where("steps.scheme_id", id)
+  .select("steps.id", "steps.step_number", "steps.instructions","schemes.scheme_name")
 
 }
 

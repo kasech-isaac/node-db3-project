@@ -8,7 +8,7 @@ JOIN Category ON Product.CategoryId
 SELECT "Order".Id, CompanyName, ShippedDate
 FROM "Order" 
 JOIN Shipper ON "Order".ShipVia=Shipper.Id
-WHERE "Order".ShippedDate < 2012-08-9
+WHERE "Order".ShippedDate < 2012-08-09
 ORDER BY "Order".ShippedDate;
 -- Display the name and quantity of the products ordered in order with Id 10251. Sort by ProductName. Shows 3 records.
 SELECT ProductName, QuantityPerUnit 
